@@ -1,15 +1,15 @@
 [
   {
-    "Id": "scrubbler.plugin.scrobblers.databasescrobbler.databasescrobbleplugin",
-    "Name": "Database Scrobbler",
+    "Id": "scrubbler.plugin.scrobblers.manualscrobbler.manualscrobbleplugin",
+    "Name": "Manual Scrobbler",
     "Version": "1.0.0.0",
-    "Description": "Search and scrobble from various online music databases",
-    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.DatabaseScrobbler.png",
+    "Description": "Enter track details manually and scrobble them",
+    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.ManualScrobbler.png",
     "PluginType": "Scrobble Plugin",
     "SupportedPlatforms": [
       "All"
     ],
-    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.DatabaseScrobbler.zip"
+    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.ManualScrobbler.zip"
   },
   {
     "Id": "scrubbler.plugin.accounts.lastfm.lastfmaccountplugin",
@@ -24,19 +24,7 @@
     "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Accounts.LastFm.zip"
   },
   {
-    "Id": "scrubbler.plugin.scrobblers.friendscrobbler.friendscrobbleplugin",
-    "Name": "Friend Scrobbler",
-    "Version": "1.0.0.0",
-    "Description": "Scrobble tracks from another last.fm user",
-    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FriendScrobbler.png",
-    "PluginType": "Scrobble Plugin",
-    "SupportedPlatforms": [
-      "All"
-    ],
-    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FriendScrobbler.zip"
-  },
-  {
-    "Id": "scrubbler.plugin.scrobbler.fileparsescrobbler.fileparsescrobbleplugin",
+    "Id": "scrubbler.plugin.scrobblers.fileparsescrobbler.fileparsescrobbleplugin",
     "Name": "File Parse Scrobbler",
     "Version": "1.0.0.0",
     "Description": "Parses scrobbles from local files",
@@ -60,15 +48,27 @@
     "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.AppleMusicScrobbler.zip"
   },
   {
-    "Id": "scrubbler.plugin.scrobblers.manualscrobbler.manualscrobbleplugin",
-    "Name": "Manual Scrobbler",
+    "Id": "scrubbler.plugin.scrobblers.friendscrobbler.friendscrobbleplugin",
+    "Name": "Friend Scrobbler",
     "Version": "1.0.0.0",
-    "Description": "Enter track details manually and scrobble them",
-    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.ManualScrobbler.png",
+    "Description": "Scrobble tracks from another last.fm user",
+    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FriendScrobbler.png",
     "PluginType": "Scrobble Plugin",
     "SupportedPlatforms": [
       "All"
     ],
-    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.ManualScrobbler.zip"
+    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FriendScrobbler.zip"
+  },
+  {
+    "Id": "scrubbler.plugin.scrobblers.databasescrobbler.databasescrobbleplugin",
+    "Name": "Database Scrobbler",
+    "Version": "1.0.0.0",
+    "Description": "Search and scrobble from various online music databases",
+    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.DatabaseScrobbler.png",
+    "PluginType": "Scrobble Plugin",
+    "SupportedPlatforms": [
+      "All"
+    ],
+    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.DatabaseScrobbler.zip"
   }
 ]
