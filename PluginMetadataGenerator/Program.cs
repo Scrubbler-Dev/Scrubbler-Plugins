@@ -60,7 +60,7 @@ class Program
         var entries = new List<PluginManifestEntry>();
         var outputDir = Path.GetDirectoryName(outputPath);
         if (!string.IsNullOrWhiteSpace(outputDir))
-          Directory.CreateDirectory(outputDir);
+            Directory.CreateDirectory(outputDir);
 
         foreach (var zipFile in zips)
         {
@@ -101,8 +101,10 @@ class Program
                 foreach (var type in pluginTypes)
                 {
                     var id = type.FullName?.ToLowerInvariant() ?? Path.GetFileNameWithoutExtension(dll).ToLowerInvariant();
-                    var rawVersion = asm.GetName().Version?.ToString()
-                                     ?? "0.0.0";
+                    var rawVersion = asm
+                        .GetCustomAttribute<AssemblyFileVersionAttribute>()?
+                        .Version
+                        ?? "0.0.0";
 
                     // trim off build metadata (e.g. +sha)
                     var version = rawVersion.Split('+')[0];
