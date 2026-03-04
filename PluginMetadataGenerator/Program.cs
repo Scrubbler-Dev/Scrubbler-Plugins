@@ -1,9 +1,9 @@
+using Scrubbler.PluginBase.Plugin;
+using Scrubbler.PluginBase.Plugin.Account;
 using System.IO.Compression;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Scrubbler.Abstractions.Plugin;
-using Scrubbler.Abstractions.Plugin.Account;
 
 record PluginManifestEntry(
     string Id,
