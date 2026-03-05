@@ -2,7 +2,7 @@
   {
     "Id": "scrubbler.plugin.scrobblers.manualscrobbler.manualscrobbleplugin",
     "Name": "Manual Scrobbler",
-    "Version": "1.0.0.0",
+    "Version": "1.1.0",
     "Description": "Enter track details manually and scrobble them",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.ManualScrobbler.png",
     "PluginType": "Scrobble Plugin",
@@ -14,7 +14,7 @@
   {
     "Id": "scrubbler.plugin.accounts.lastfm.lastfmaccountplugin",
     "Name": "Last.fm",
-    "Version": "1.0.1",
+    "Version": "1.1.0",
     "Description": "Scrobble to a Last.fm account",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Accounts.LastFm.png",
     "PluginType": "Account Plugin",
@@ -26,7 +26,7 @@
   {
     "Id": "scrubbler.plugin.scrobblers.fileparsescrobbler.fileparsescrobbleplugin",
     "Name": "File Parse Scrobbler",
-    "Version": "1.0.0.0",
+    "Version": "1.1.0",
     "Description": "Parses scrobbles from local files",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FileParseScrobbler.png",
     "PluginType": "Scrobble Plugin",
@@ -36,9 +36,9 @@
     "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FileParseScrobbler.zip"
   },
   {
-    "Id": "scrubbler.plugin.scrobbler.applemusicscrobbler.applemusicscrobbleplugin",
+    "Id": "scrubbler.plugin.scrobblers.applemusicscrobbler.applemusicscrobbleplugin",
     "Name": "Apple Music Scrobbler",
-    "Version": "1.0.0.0",
+    "Version": "1.1.0",
     "Description": "Automatically scrobble tracks playing in the Apple Music desktop app",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.AppleMusicScrobbler.png",
     "PluginType": "Scrobble Plugin",
@@ -50,7 +50,7 @@
   {
     "Id": "scrubbler.plugin.scrobblers.friendscrobbler.friendscrobbleplugin",
     "Name": "Friend Scrobbler",
-    "Version": "1.0.0.0",
+    "Version": "1.1.0",
     "Description": "Scrobble tracks from another last.fm user",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FriendScrobbler.png",
     "PluginType": "Scrobble Plugin",
@@ -62,7 +62,7 @@
   {
     "Id": "scrubbler.plugin.scrobblers.databasescrobbler.databasescrobbleplugin",
     "Name": "Database Scrobbler",
-    "Version": "1.0.0.0",
+    "Version": "1.1.0",
     "Description": "Search and scrobble from various online music databases",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.DatabaseScrobbler.png",
     "PluginType": "Scrobble Plugin",
