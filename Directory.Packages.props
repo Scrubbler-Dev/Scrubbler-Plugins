@@ -1,5 +1,5 @@
 <Project ToolsVersion="15.0">
   <ItemGroup>
-    <PackageVersion Include="Scrubbler.PluginBase" Version="1.2.0" />
+    <PackageVersion Include="Scrubbler.PluginBase" Version="1.2.1" />
   </ItemGroup>
 </Project>
