@@ -24,6 +24,18 @@
     "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.AppleMusicScrobbler.zip"
   },
   {
+    "Id": "scrubbler.plugin.scrobblers.cloneheroscrobbler.cloneheroscrobbleplugin",
+    "Name": "Clone Hero Scrobbler",
+    "Version": "1.0.0",
+    "Description": "Automatically scrobble songs played in Clone Hero",
+    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.CloneHeroScrobbler.png",
+    "PluginType": "Scrobble Plugin",
+    "SupportedPlatforms": [
+      "All"
+    ],
+    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.CloneHeroScrobbler.zip"
+  },
+  {
     "Id": "scrubbler.plugin.scrobblers.databasescrobbler.databasescrobbleplugin",
     "Name": "Database Scrobbler",
     "Version": "1.1.0",
