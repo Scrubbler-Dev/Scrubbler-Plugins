@@ -14,7 +14,7 @@
   {
     "Id": "scrubbler.plugin.scrobblers.applemusicscrobbler.applemusicscrobbleplugin",
     "Name": "Apple Music Scrobbler",
-    "Version": "1.1.0",
+    "Version": "1.1.1",
     "Description": "Automatically scrobble tracks playing in the Apple Music desktop app",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.AppleMusicScrobbler.png",
     "PluginType": "Scrobble Plugin",
