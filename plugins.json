@@ -1,20 +1,8 @@
 [
   {
-    "Id": "scrubbler.plugin.scrobblers.manualscrobbler.manualscrobbleplugin",
-    "Name": "Manual Scrobbler",
-    "Version": "1.1.0",
-    "Description": "Enter track details manually and scrobble them",
-    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.ManualScrobbler.png",
-    "PluginType": "Scrobble Plugin",
-    "SupportedPlatforms": [
-      "All"
-    ],
-    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.ManualScrobbler.zip"
-  },
-  {
     "Id": "scrubbler.plugin.accounts.lastfm.lastfmaccountplugin",
     "Name": "Last.fm",
-    "Version": "1.1.0",
+    "Version": "1.1.1",
     "Description": "Scrobble to a Last.fm account",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Accounts.LastFm.png",
     "PluginType": "Account Plugin",
@@ -22,18 +10,6 @@
       "All"
     ],
     "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Accounts.LastFm.zip"
-  },
-  {
-    "Id": "scrubbler.plugin.scrobblers.fileparsescrobbler.fileparsescrobbleplugin",
-    "Name": "File Parse Scrobbler",
-    "Version": "1.1.0",
-    "Description": "Parses scrobbles from local files",
-    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FileParseScrobbler.png",
-    "PluginType": "Scrobble Plugin",
-    "SupportedPlatforms": [
-      "All"
-    ],
-    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FileParseScrobbler.zip"
   },
   {
     "Id": "scrubbler.plugin.scrobblers.applemusicscrobbler.applemusicscrobbleplugin",
@@ -48,6 +24,30 @@
     "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.AppleMusicScrobbler.zip"
   },
   {
+    "Id": "scrubbler.plugin.scrobblers.databasescrobbler.databasescrobbleplugin",
+    "Name": "Database Scrobbler",
+    "Version": "1.1.0",
+    "Description": "Search and scrobble from various online music databases",
+    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.DatabaseScrobbler.png",
+    "PluginType": "Scrobble Plugin",
+    "SupportedPlatforms": [
+      "All"
+    ],
+    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.DatabaseScrobbler.zip"
+  },
+  {
+    "Id": "scrubbler.plugin.scrobblers.fileparsescrobbler.fileparsescrobbleplugin",
+    "Name": "File Parse Scrobbler",
+    "Version": "1.1.0",
+    "Description": "Parses scrobbles from local files",
+    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FileParseScrobbler.png",
+    "PluginType": "Scrobble Plugin",
+    "SupportedPlatforms": [
+      "All"
+    ],
+    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FileParseScrobbler.zip"
+  },
+  {
     "Id": "scrubbler.plugin.scrobblers.friendscrobbler.friendscrobbleplugin",
     "Name": "Friend Scrobbler",
     "Version": "1.1.0",
@@ -60,15 +60,15 @@
     "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FriendScrobbler.zip"
   },
   {
-    "Id": "scrubbler.plugin.scrobblers.databasescrobbler.databasescrobbleplugin",
-    "Name": "Database Scrobbler",
+    "Id": "scrubbler.plugin.scrobblers.manualscrobbler.manualscrobbleplugin",
+    "Name": "Manual Scrobbler",
     "Version": "1.1.0",
-    "Description": "Search and scrobble from various online music databases",
-    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.DatabaseScrobbler.png",
+    "Description": "Enter track details manually and scrobble them",
+    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.ManualScrobbler.png",
     "PluginType": "Scrobble Plugin",
     "SupportedPlatforms": [
       "All"
     ],
-    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.DatabaseScrobbler.zip"
+    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.ManualScrobbler.zip"
   }
 ]

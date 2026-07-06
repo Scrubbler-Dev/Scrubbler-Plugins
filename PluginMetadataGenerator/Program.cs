@@ -2,6 +2,7 @@ using Scrubbler.PluginBase.Plugin;
 using Scrubbler.PluginBase.Plugin.Account;
 using System.IO.Compression;
 using System.Reflection;
+using System.Runtime.Loader;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -49,7 +50,9 @@ class Program
         var outputPath = args[1];
         var baseUrl = args[2].TrimEnd('/');
 
-        var zips = Directory.GetFiles(zipDir, "Scrubbler.Plugin.*.zip");
+        var zips = Directory.GetFiles(zipDir, "Scrubbler.Plugin.*.zip")
+            .OrderBy(Path.GetFileName, StringComparer.Ordinal)
+            .ToArray();
         if (zips.Length == 0)
         {
             Console.Error.WriteLine($"No plugin zips found in {zipDir}");
@@ -86,46 +89,57 @@ class Program
 
                 Console.WriteLine($"Inspecting {Path.GetFileName(zipFile)} using {Path.GetFileName(dll)}");
 
-                var asm = Assembly.LoadFrom(dll);
+                var loadContext = new PluginAssemblyLoadContext(dll);
 
-                // find all IPlugin implementations
-                var pluginTypes = asm.GetTypes()
-                    .Where(t => typeof(IPlugin).IsAssignableFrom(t) && !t.IsAbstract);
-
-                if (!pluginTypes.Any())
+                try
                 {
-                    Console.WriteLine($"Skipping {zipFile}: no IPlugin implementations found in {Path.GetFileName(dll)}");
-                    continue;
+                    var asm = loadContext.LoadFromAssemblyPath(dll);
+
+                    // find all IPlugin implementations
+                    var pluginTypes = GetAssemblyTypes(asm)
+                        .Where(t => typeof(IPlugin).IsAssignableFrom(t) && !t.IsAbstract)
+                        .OrderBy(t => t.FullName, StringComparer.Ordinal)
+                        .ToArray();
+
+                    if (pluginTypes.Length == 0)
+                    {
+                        Console.WriteLine($"Skipping {zipFile}: no IPlugin implementations found in {Path.GetFileName(dll)}");
+                        continue;
+                    }
+
+                    foreach (var type in pluginTypes)
+                    {
+                        var id = type.FullName?.ToLowerInvariant() ?? Path.GetFileNameWithoutExtension(dll).ToLowerInvariant();
+                        var rawVersion = asm
+                            .GetCustomAttribute<AssemblyFileVersionAttribute>()?
+                            .Version
+                            ?? "0.0.0";
+
+                        // trim off build metadata (e.g. +sha)
+                        var version = rawVersion.Split('+')[0];
+
+                        // resolve type label dynamically
+                        var pluginTypeLabel = ResolvePluginType(type);
+
+                        var meta = type.GetCustomAttribute<PluginMetadataAttribute>() ?? throw new InvalidOperationException($"Plugin {type.FullName} has no PluginMetadata attribute");
+                        var entry = new PluginManifestEntry(
+                            Id: id,
+                            Name: meta.Name,
+                            Version: version,
+                            Description: meta.Description,
+                            IconUri: new Uri($"{baseUrl}/plugins/{Path.GetFileNameWithoutExtension(zipFile) + ".png"}"),
+                            PluginType: pluginTypeLabel,
+                            SupportedPlatforms: meta.SupportedPlatforms.ToString().Split(", "),
+                            SourceUri: new Uri($"{baseUrl}/plugins/{Path.GetFileName(zipFile)}")
+                        );
+
+                        entries.Add(entry);
+                        Console.WriteLine($"Added {meta.Name} v{version} ({pluginTypeLabel})");
+                    }
                 }
-
-                foreach (var type in pluginTypes)
+                finally
                 {
-                    var id = type.FullName?.ToLowerInvariant() ?? Path.GetFileNameWithoutExtension(dll).ToLowerInvariant();
-                    var rawVersion = asm
-                        .GetCustomAttribute<AssemblyFileVersionAttribute>()?
-                        .Version
-                        ?? "0.0.0";
-
-                    // trim off build metadata (e.g. +sha)
-                    var version = rawVersion.Split('+')[0];
-
-                    // resolve type label dynamically
-                    var pluginTypeLabel = ResolvePluginType(type);
-
-                    var meta = type.GetCustomAttribute<PluginMetadataAttribute>() ?? throw new InvalidOperationException($"Plugin {type.FullName} has no PluginMetadata attribute");
-                    var entry = new PluginManifestEntry(
-                        Id: id,
-                        Name: meta.Name,
-                        Version: version,
-                        Description: meta.Description,
-                        IconUri: new Uri($"{baseUrl}/plugins/{Path.GetFileNameWithoutExtension(zipFile) + ".png"}"),
-                        PluginType: pluginTypeLabel,
-                        SupportedPlatforms: meta.SupportedPlatforms.ToString().Split(", "),
-                        SourceUri: new Uri($"{baseUrl}/plugins/{Path.GetFileName(zipFile)}")
-                    );
-
-                    entries.Add(entry);
-                    Console.WriteLine($"Added {meta.Name} v{version} ({pluginTypeLabel})");
+                    loadContext.Unload();
                 }
             }
             catch (Exception ex)
@@ -151,5 +165,54 @@ class Program
                 return kvp.Value;
         }
         return "Plugin"; // fallback
+    }
+
+    private static Type[] GetAssemblyTypes(Assembly assembly)
+    {
+        try
+        {
+            return assembly.GetTypes();
+        }
+        catch (ReflectionTypeLoadException ex)
+        {
+            foreach (var loaderException in ex.LoaderExceptions)
+            {
+                if (loaderException is not null)
+                    Console.Error.WriteLine(loaderException.Message);
+            }
+
+            throw;
+        }
+    }
+}
+
+sealed class PluginAssemblyLoadContext(string pluginAssemblyPath) : AssemblyLoadContext(isCollectible: true)
+{
+    private static readonly Assembly SharedPluginBaseAssembly = typeof(IPlugin).Assembly;
+    private static readonly string SharedPluginBaseAssemblyName = SharedPluginBaseAssembly.GetName().Name!;
+
+    private readonly AssemblyDependencyResolver _resolver = new(pluginAssemblyPath);
+    private readonly string _pluginDirectory = Path.GetDirectoryName(pluginAssemblyPath) ?? throw new InvalidOperationException("Plugin assembly path has no directory.");
+
+    protected override Assembly? Load(AssemblyName assemblyName)
+    {
+        if (assemblyName.Name == SharedPluginBaseAssemblyName)
+            return SharedPluginBaseAssembly;
+
+        var assemblyPath = _resolver.ResolveAssemblyToPath(assemblyName);
+        if (assemblyPath is not null)
+            return LoadFromAssemblyPath(assemblyPath);
+
+        var localAssemblyPath = Path.Combine(_pluginDirectory, assemblyName.Name + ".dll");
+        if (File.Exists(localAssemblyPath))
+            return LoadFromAssemblyPath(localAssemblyPath);
+
+        return null;
+    }
+
+    protected override nint LoadUnmanagedDll(string unmanagedDllName)
+    {
+        var libraryPath = _resolver.ResolveUnmanagedDllToPath(unmanagedDllName);
+        return libraryPath is null ? 0 : LoadUnmanagedDllFromPath(libraryPath);
     }
 }
