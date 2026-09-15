@@ -12,6 +12,18 @@
     "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Accounts.LastFm.zip"
   },
   {
+    "Id": "scrubbler.plugin.accounts.listenbrainz.listenbrainzaccountplugin",
+    "Name": "ListenBrainz",
+    "Version": "1.0.0",
+    "Description": "Scrobble to a ListenBrainz account",
+    "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Accounts.ListenBrainz.png",
+    "PluginType": "Account Plugin",
+    "SupportedPlatforms": [
+      "All"
+    ],
+    "SourceUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Accounts.ListenBrainz.zip"
+  },
+  {
     "Id": "scrubbler.plugin.scrobblers.applemusicscrobbler.applemusicscrobbleplugin",
     "Name": "Apple Music Scrobbler",
     "Version": "1.1.2",
