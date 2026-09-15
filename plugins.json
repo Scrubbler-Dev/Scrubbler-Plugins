@@ -74,7 +74,7 @@
   {
     "Id": "scrubbler.plugin.scrobblers.friendscrobbler.friendscrobbleplugin",
     "Name": "Friend Scrobbler",
-    "Version": "1.1.0",
+    "Version": "1.1.1",
     "Description": "Scrobble tracks from another last.fm user",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FriendScrobbler.png",
     "PluginType": "Scrobble Plugin",
