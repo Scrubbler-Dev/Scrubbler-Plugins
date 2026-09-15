@@ -2,7 +2,7 @@
   {
     "Id": "scrubbler.plugin.accounts.lastfm.lastfmaccountplugin",
     "Name": "Last.fm",
-    "Version": "1.1.1",
+    "Version": "1.1.2",
     "Description": "Scrobble to a Last.fm account",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Accounts.LastFm.png",
     "PluginType": "Account Plugin",
