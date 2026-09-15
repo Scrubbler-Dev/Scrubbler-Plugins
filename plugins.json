@@ -50,7 +50,7 @@
   {
     "Id": "scrubbler.plugin.scrobblers.databasescrobbler.databasescrobbleplugin",
     "Name": "Database Scrobbler",
-    "Version": "1.1.0",
+    "Version": "1.1.1",
     "Description": "Search and scrobble from various online music databases",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.DatabaseScrobbler.png",
     "PluginType": "Scrobble Plugin",
