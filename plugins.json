@@ -86,7 +86,7 @@
   {
     "Id": "scrubbler.plugin.scrobblers.manualscrobbler.manualscrobbleplugin",
     "Name": "Manual Scrobbler",
-    "Version": "1.1.0",
+    "Version": "1.1.1",
     "Description": "Enter track details manually and scrobble them",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.ManualScrobbler.png",
     "PluginType": "Scrobble Plugin",
