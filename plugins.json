@@ -62,7 +62,7 @@
   {
     "Id": "scrubbler.plugin.scrobblers.fileparsescrobbler.fileparsescrobbleplugin",
     "Name": "File Parse Scrobbler",
-    "Version": "1.1.0",
+    "Version": "1.1.1",
     "Description": "Parses scrobbles from local files",
     "IconUri": "https://raw.githubusercontent.com/Scrubbler-Dev/Scrubbler-Plugins/main/plugins/Scrubbler.Plugin.Scrobblers.FileParseScrobbler.png",
     "PluginType": "Scrobble Plugin",
